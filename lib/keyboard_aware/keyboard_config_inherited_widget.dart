@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:keyboard_utils_fork/keyboard_options.dart';
 
 class KeyboardConfigInheritedWidget extends InheritedWidget {
-  const KeyboardConfigInheritedWidget({this.keyboardConfig, required Widget child})
-      : super(child: child);
+  const KeyboardConfigInheritedWidget(
+      {Key? key, this.keyboardConfig, required Widget child})
+      : super(key: key, child: child);
 
   final KeyboardOptions? keyboardConfig;
 

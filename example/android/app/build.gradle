@@ -30,14 +30,16 @@ android {
 
     namespace 'br.com.keyboard_utils_example'
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
+    // compileOptions {
+    // // maximum SDK version
+    // sourceCompatibility JavaVersion.VERSION_1_8
+    // // minimum SDK version
+    // targetCompatibility JavaVersion.VERSION_1_8
+    // }
 
-    kotlinOptions {
-        jvmTarget = 17
-    }
+    // kotlinOptions {
+    //     jvmTarget = 17
+    // }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

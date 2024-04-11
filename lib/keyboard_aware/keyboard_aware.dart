@@ -4,7 +4,7 @@ import 'package:keyboard_utils_fork/keyboard_options.dart';
 import 'package:keyboard_utils_fork/keyboard_utils.dart';
 
 class KeyboardAware extends StatefulWidget {
-  const KeyboardAware({required this.builder});
+  const KeyboardAware({Key? key, required this.builder}) : super(key: key);
 
   final Widget Function(
       BuildContext context, KeyboardOptions configuracaoTeclado) builder;

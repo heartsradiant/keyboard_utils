@@ -12,9 +12,9 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  KeyboardBloc _bloc = KeyboardBloc();
+  final KeyboardBloc _bloc = KeyboardBloc();
 
-  KeyboardUtils _keyboardUtils = KeyboardUtils();
+  final KeyboardUtils _keyboardUtils = KeyboardUtils();
 
   // 软键盘高度
   double tempKeyBoardHeight = 0;
@@ -74,7 +74,7 @@ class _InputPageState extends State<InputPage> {
       body: buildSampleUsingKeyboardAwareWidget(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -103,11 +103,11 @@ class _InputPageState extends State<InputPage> {
                 '\n动态软键盘高度: $tempKeyBoardHeight',
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Container(
               height: 50,
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: TextField(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: const TextField(
                 // keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: '请输入',
@@ -128,12 +128,12 @@ class _InputPageState extends State<InputPage> {
     return Center(
       child: Column(
         children: <Widget>[
-          TextField(),
-          TextField(
+          const TextField(),
+          const TextField(
             keyboardType: TextInputType.number,
           ),
-          TextField(),
-          SizedBox(
+          const TextField(),
+          const SizedBox(
             height: 30,
           ),
           StreamBuilder<double>(

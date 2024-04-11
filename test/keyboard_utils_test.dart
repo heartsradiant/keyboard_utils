@@ -6,7 +6,8 @@ import 'package:keyboard_utils_fork/keyboard_utils.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  late EventsChannelSpy eventsChannelSpy = EventsChannelSpy('keyboard_utils');
+  late final EventsChannelSpy eventsChannelSpy =
+      EventsChannelSpy('keyboard_utils');
 
   late final keyboardUtils = KeyboardUtils();
 
@@ -108,7 +109,7 @@ void main() {
 
   test('willShowKeyboard', () async {
     final fakeKeyboardListener = KeyboardListenerSpy();
-    final jsonTest = '{ "isKeyboardOpen": true, "keyboardHeight": 200}';
+    const jsonTest = '{ "isKeyboardOpen": true, "keyboardHeight": 200}';
 
     keyboardUtils.add(listener: fakeKeyboardListener);
 
@@ -123,7 +124,7 @@ void main() {
 
   test('willHideKeyboard', () async {
     final fakeKeyboardListener = KeyboardListenerSpy();
-    final jsonTest = '{ "isKeyboardOpen": false, "keyboardHeight": 0.0}';
+    const jsonTest = '{ "isKeyboardOpen": false, "keyboardHeight": 0.0}';
 
     keyboardUtils.add(listener: fakeKeyboardListener);
 
@@ -169,7 +170,7 @@ class EventsChannelSpy {
     return Future<void>.sync(() {});
   }
 
-  Future<void> sendEvent(dynamic event) {
+  Future<void> sendEvent(event) {
     return _sendMessage(
         const StandardMethodCodec().encodeSuccessEnvelope(event));
   }

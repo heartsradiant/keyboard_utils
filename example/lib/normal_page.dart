@@ -24,11 +24,11 @@ class _NormalPageState extends State<NormalPage> with WidgetsBindingObserver {
 
   @override
   void didChangeMetrics() {
-    var viewInsets = MediaQuery.of(context).viewInsets;
-    var padding = MediaQuery.of(context).padding;
-    var viewPadding = MediaQuery.of(context).viewPadding;
+    final viewInsets = MediaQuery.of(context).viewInsets;
+    final padding = MediaQuery.of(context).padding;
+    final viewPadding = MediaQuery.of(context).viewPadding;
 
-    String result = '显示 '
+    final String result = '显示 '
         '\nviewInsets.top=${viewInsets.top} '
         '\nviewInsets.bottom=${viewInsets.bottom} '
         '\npadding.top=${padding.top} '
@@ -122,7 +122,7 @@ class _NormalPageState extends State<NormalPage> with WidgetsBindingObserver {
           ),
           TextButton(
             onPressed: () {
-              String value = controller.text;
+              final String value = controller.text;
               if (value.isNotEmpty) {
                 setState(() {
                   message.add(value);
@@ -139,7 +139,7 @@ class _NormalPageState extends State<NormalPage> with WidgetsBindingObserver {
 
   /// 底部弹出-常用语视图
   Widget bottomView() {
-    double tempHeight = keyboardHeight;
+    final double tempHeight = keyboardHeight;
 
     return Container(
       padding: EdgeInsets.only(bottom: tempSafeHeight),

@@ -6,8 +6,8 @@ import 'package:keyboard_utils_fork/keyboard_listener.dart'
 
 // Sample Bloc
 class KeyboardBloc {
-  KeyboardUtils _keyboardUtils = KeyboardUtils();
-  StreamController<double> _streamController = StreamController<double>();
+  final KeyboardUtils _keyboardUtils = KeyboardUtils();
+  final StreamController<double> _streamController = StreamController<double>();
 
   Stream<double> get stream => _streamController.stream;
 

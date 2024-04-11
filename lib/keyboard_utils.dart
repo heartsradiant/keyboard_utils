@@ -10,17 +10,18 @@ import 'keyboard_options.dart';
 class KeyboardUtils {
   KeyboardUtils() {
     if (!kIsWeb) {
-      _keyboardSubscription ??= _eventChannel.receiveBroadcastStream().listen(_onKeyboardListener);
+      _keyboardSubscription ??=
+          _eventChannel.receiveBroadcastStream().listen(_onKeyboardListener);
     }
   }
 
   static const EventChannel _eventChannel = EventChannel('keyboard_utils');
 
-  static StreamSubscription? _keyboardSubscription;
+  static StreamSubscription<dynamic>? _keyboardSubscription;
 
   static int _count = 0;
 
-  static Map<int, KeyboardListener> _listenersKeyboardEvents = Map<int, KeyboardListener>();
+  static final _listenersKeyboardEvents = <int, KeyboardListener>{};
 
   static KeyboardOptions? _keyboardOptions;
 
@@ -41,15 +42,22 @@ class KeyboardUtils {
   }
 
   KeyboardOptions? _decodeDataToKeyboardOptions({required Object? data}) {
-    if (data != null && data is String) {
-      try {
-        final Map<String, dynamic> keyboardOptionsMap = jsonDecode(data);
-        return KeyboardOptions.fromJson(keyboardOptionsMap);
-      } catch (_) {
+    if (data is! String) {
+      return null;
+    }
+
+    try {
+      final keyboardOptionsMap = jsonDecode(data);
+      if (keyboardOptionsMap is! Map) {
         return null;
       }
+
+      return KeyboardOptions.fromJson(
+        Map<String, dynamic>.from(keyboardOptionsMap),
+      );
+    } catch (_) {
+      return null;
     }
-    return null;
   }
 
   static void _updateKeyboardOptionsWith({

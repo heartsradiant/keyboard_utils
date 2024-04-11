@@ -30,7 +30,7 @@ class MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    bool isToInputPage = currentIndex == 0;
+    final bool isToInputPage = currentIndex == 0;
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -74,8 +74,8 @@ class MainPageState extends State<MainPage> {
           });
         },
         items: barItems
-            .map((e) => BottomNavigationBarItem(
-                icon: Icon(e.iconData), label: e.label))
+            .map((e) =>
+                BottomNavigationBarItem(icon: Icon(e.iconData), label: e.label))
             .toList(),
       ),
     );
