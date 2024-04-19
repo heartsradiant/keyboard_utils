@@ -1,5 +1,4 @@
-package android.src.main.kotlin.br.com.keyboard_utils.utils;
-
+package br.com.keyboard_utils.utils;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -13,7 +12,8 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 
 /**
- * simple and powerful Keyboard show/hidden listener,view {@android.R.id.content} and {@ViewTreeObserver.OnGlobalLayoutListener}
+ * simple and powerful Keyboard show/hidden listener,view
+ * {@android.R.id.content} and {@ViewTreeObserver.OnGlobalLayoutListener}
  * Created by yes.cpu@gmail.com 2016/7/13.
  */
 public class KeyboardChangeListener implements ViewTreeObserver.OnGlobalLayoutListener {
@@ -76,7 +76,6 @@ public class KeyboardChangeListener implements ViewTreeObserver.OnGlobalLayoutLi
         mContentView.getViewTreeObserver().addOnGlobalLayoutListener(this);
     }
 
-
     @Override
     public void onGlobalLayout() {
         if (mContentView == null || mWindow == null) {
@@ -97,7 +96,8 @@ public class KeyboardChangeListener implements ViewTreeObserver.OnGlobalLayoutLi
 
         keyboardHeight = screenHeight - windowBottom;
 
-        Log.d(TAG, "onGlobalLayout() called " + " screenHeight " + screenHeight + " VisibleDisplayHeight " + windowBottom);
+        Log.d(TAG,
+                "onGlobalLayout() called " + " screenHeight " + screenHeight + " VisibleDisplayHeight " + windowBottom);
 
         if (mKeyboardListener != null) {
             boolean currentShow = keyboardHeight > MIN_KEYBOARD_HEIGHT;
@@ -120,7 +120,6 @@ public class KeyboardChangeListener implements ViewTreeObserver.OnGlobalLayoutLi
         screenHeight = point.y;
         return screenHeight;
     }
-
 
     public void destroy() {
         if (mContentView != null) {

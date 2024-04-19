@@ -1,4 +1,4 @@
-package android.src.main.kotlin.br.com.keyboard_utils.utils;
+package br.com.keyboard_utils.utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,31 +11,37 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Field;
+
 public class Utils {
 
     @RequiresApi(api = Build.VERSION_CODES.R)
     public void test(Activity activity) {
-        activity.getWindow().getDecorView().addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+        activity.getWindow().getDecorView()
+                .addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
 
-            System.out.println("test 软键盘 31以上 " +
-                    "left=" + left +
-                    " top=" + top +
-                    " right=" + right +
-                    " bottom=" + bottom +
-                    " oldLeft=" + oldLeft +
-                    " oldTop=" + oldTop +
-                    " oldRight=" + oldRight +
-                    " oldBottom=" + oldBottom);
-        });
-//        activity.getWindow().getDecorView().setOnApplyWindowInsetsListener((v, insets) -> {
-//            int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-//            int navHeight = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
-//            boolean hasNavigationBar = insets.isVisible(WindowInsetsCompat.Type.navigationBars()) &&
-//                    insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom > 0;
-//            int height = hasNavigationBar ? Math.max(imeHeight - navHeight, 0) : imeHeight;
-//            System.out.println("test 软键盘 31以上 height=" + height);
-//            return insets;
-//        });
+                    System.out.println("test 软键盘 31以上 " +
+                            "left=" + left +
+                            " top=" + top +
+                            " right=" + right +
+                            " bottom=" + bottom +
+                            " oldLeft=" + oldLeft +
+                            " oldTop=" + oldTop +
+                            " oldRight=" + oldRight +
+                            " oldBottom=" + oldBottom);
+                });
+        // activity.getWindow().getDecorView().setOnApplyWindowInsetsListener((v,
+        // insets) -> {
+        // int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+        // int navHeight =
+        // insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
+        // boolean hasNavigationBar =
+        // insets.isVisible(WindowInsetsCompat.Type.navigationBars()) &&
+        // insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom > 0;
+        // int height = hasNavigationBar ? Math.max(imeHeight - navHeight, 0) :
+        // imeHeight;
+        // System.out.println("test 软键盘 31以上 height=" + height);
+        // return insets;
+        // });
     }
 
     public int getStatusBarHeight(Context context) {
@@ -68,7 +74,7 @@ public class Utils {
         return height;
     }
 
-    //获取是否存在NavigationBar
+    // 获取是否存在NavigationBar
     public static boolean checkDeviceHasNavigationBar(Context context) {
         boolean hasNavigationBar = false;
         Resources rs = context.getResources();

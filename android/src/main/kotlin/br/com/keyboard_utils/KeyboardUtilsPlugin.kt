@@ -21,7 +21,7 @@ import android.view.Display
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.Window
-import android.src.main.kotlin.br.com.keyboard_utils.utils.Utils;
+import br.com.keyboard_utils.utils.Utils;
 
 class KeyboardUtilsPlugin : FlutterPlugin, ActivityAware, EventChannel.StreamHandler {
     private var keyboardUtil: KeyboardNewUtils? = null
