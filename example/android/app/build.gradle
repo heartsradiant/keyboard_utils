@@ -26,20 +26,28 @@ if (flutterVersionName == null) {
 def keystoreProperties = new Properties()
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     namespace 'br.com.keyboard_utils_example'
 
-    // compileOptions {
-    // // maximum SDK version
-    // sourceCompatibility JavaVersion.VERSION_1_8
-    // // minimum SDK version
-    // targetCompatibility JavaVersion.VERSION_1_8
-    // }
+    compileOptions {
+    // maximum SDK version
+    sourceCompatibility JavaVersion.VERSION_1_8
+    // minimum SDK version
+    targetCompatibility JavaVersion.VERSION_1_8
+    }
 
-    // kotlinOptions {
-    //     jvmTarget = 17
-    // }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+    }
+
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
